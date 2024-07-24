@@ -15,7 +15,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {photos.map((photo) => (
                     <div key={photo._id} className="bg-white p-4 rounded shadow-md">
-                        <img src={photo.photoUrl} alt={photo.description} className="w-full h-auto" />
+                        <image src={photo.photoUrl} alt={photo.description} className="w-full h-auto" />
                         <p>{photo.description}</p>
                         <p>By: {photo.user.name}</p>
                     </div>

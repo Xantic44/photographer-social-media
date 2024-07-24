@@ -2,10 +2,11 @@ import connectDB from '../../utils/db';
 import User from '../../models/user';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-
+import auth from '../../../utils/auth';
 connectDB();
 
 export default async function handler(req, res) {
+    
     const { method } = req;
 
     switch (method) {
