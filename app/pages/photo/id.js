@@ -10,7 +10,7 @@ export default function PhotoDetails() {
 
     useEffect(() => {
         if (id) {
-            fetch(`/api/photo?id=${id}`)
+            fetch(`/api/photo/${id}`)
                 .then((res) => res.json())
                 .then((data) => setPhoto(data));
 

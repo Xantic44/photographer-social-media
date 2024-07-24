@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function Upload() {
-    const [form, setForm] = useState({ photoUrl: '', description: '' });
+    const [form, setForm] = useState({ photoUrl: '', description: '', tags: '' }); // State to manage form inputs
     const router = useRouter();
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        setForm({ ...form, [e.target.name]: e.target.value }); // Update form state
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
         if (!token) {
-            router.push('/login');
+            router.push('/login'); // Redirect to login if no token is found
             return;
         }
 
@@ -23,14 +23,14 @@ export default function Upload() {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify(form),
+            body: JSON.stringify(form), // Send form data to the API
         });
 
         if (res.ok) {
-            router.push('/');
+            router.push('/'); // Redirect to home page if upload is successful
         } else {
             const data = await res.json();
-            alert(data.message);
+            alert(data.message); // Show error message if upload fails
         }
     };
 
@@ -45,6 +45,10 @@ export default function Upload() {
                 <div className="mb-4">
                     <label htmlFor="description" className="block text-gray-700">Description</label>
                     <textarea name="description" id="description" className="w-full p-2 border border-gray-300 rounded mt-1" value={form.description} onChange={handleChange} required></textarea>
+                </div>
+                <div className="mb-4">
+                    <label htmlFor="tags" className="block text-gray-700">Tags</label>
+                    <input type="text" name="tags" id="tags" className="w-full p-2 border border-gray-300 rounded mt-1" value={form.tags} onChange={handleChange} placeholder="Comma separated" />
                 </div>
                 <button type="submit" className="bg-blue-500 text-white p-2 rounded">Upload</button>
             </form>
