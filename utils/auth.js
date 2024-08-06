@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/user';
+import User from '../../models/user';
 
 const auth = async (req, res) => {
     const token = req.headers.authorization?.split(' ')[1];

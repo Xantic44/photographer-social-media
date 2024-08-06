@@ -1,5 +1,5 @@
 import connectDB from '../../utils/db';
-import Comment from '../../models/comment';
+import Comment from '../../app/models/comment';
 import auth from '../../utils/auth';
 
 connectDB();

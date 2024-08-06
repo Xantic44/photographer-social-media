@@ -1,5 +1,5 @@
 import connectDB from '../../../utils/db'; // Import the database connection utility
-import Photo from '../../../models/photo'; // Import the Photo model
+import Photo from '../../../app/models/photo'; // Import the Photo model
 import auth from '../../../utils/auth'; // Import the authentication middleware
 
 connectDB(); // Connect to the database

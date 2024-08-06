@@ -1,5 +1,5 @@
 import connectDB from '../../utils/db';
-import Photo from '../../models/photo';
+import Photo from '../../app/models/photo';
 import auth from '../../utils/auth';
 
 connectDB();

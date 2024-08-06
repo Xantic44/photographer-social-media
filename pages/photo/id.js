@@ -52,7 +52,7 @@ export default function PhotoDetails() {
     return (
         <div className="container mx-auto mt-10">
             <div className="bg-white p-4 rounded shadow-md">
-                <imgage  src={photo.photoUrl} alt={photo.description} className="w-full h-auto" />
+                <imgage src={photo.photoUrl} alt={photo.description} className="w-full h-auto" />
                 <p>{photo.description}</p>
                 <p>By: {photo.user.name}</p>
             </div>
